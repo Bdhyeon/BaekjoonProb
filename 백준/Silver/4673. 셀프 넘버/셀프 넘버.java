@@ -2,31 +2,34 @@ import java.io.*;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
+		selfNumber(10000);
+	}// end main
+
+	public static void selfNumber(int num) throws IOException {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		
-		int[] cnt = new int[10000];
+
+		int[] cnt = new int[num];
 		int n = 0;
-		
-		for(int i=1; i<=10000; i++) {
+
+		for (int i = 1; i <= num; i++) {
 			n = i;
 			int sum = n;
-			while(n>0) {
-				sum += n%10;
-				n = n/10;
+			while (n > 0) {
+				sum += n % 10;
+				n = n / 10;
 			}
-			
-			if(sum<=10000) {
-				cnt[sum-1] ++;
-			}
-		}
-		
-		for(int i=0; i<10000; i++) {
-			if(cnt[i]==0) {
-				bw.write((i+1)+"\n");
+
+			if (sum <= num) {
+				cnt[sum - 1]++;
 			}
 		}
-		
+
+		for (int i = 0; i < num; i++) {
+			if (cnt[i] == 0) {
+				bw.write((i + 1) + "\n");
+			}
+		}
+
 		bw.flush();
-		
-	}//end main
-}//end class
+	}
+}// end class
