@@ -6,10 +6,7 @@ public class Main {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringBuilder sb = new StringBuilder();
 
-		int[] alphabet = new int[26];
-		for (int i = 0; i < alphabet.length; i++) {
-			alphabet[i] = -1;
-		}
+		int[] alphabet = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
 
 		char[] s = br.readLine().toCharArray();
 
