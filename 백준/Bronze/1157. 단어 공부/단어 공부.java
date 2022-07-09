@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.*;
 
 public class Main{
     public static void main(String[] args) throws IOException{
@@ -14,20 +13,17 @@ public class Main{
         }
         
         int max = 0;
-        for(int i=0; i<26; i++) {
-        	max = max < cnt[i] ? cnt[i] : max;
-        }
-        
-        int chk = 0;
         char res = ' ';
         for(int i=0; i<26; i++) {
-        	if(max==cnt[i]) {
-        		chk++;
+        	if(max < cnt[i]) {
+        		max = cnt[i];
         		res = (char)(i + 65);
+        	}else if(max == cnt[i]) {
+        		res = '?';
         	}
         }
         
-        bw.write(chk == 1 ? res : '?');
+        bw.write(res);
         bw.flush();
     }
 }
