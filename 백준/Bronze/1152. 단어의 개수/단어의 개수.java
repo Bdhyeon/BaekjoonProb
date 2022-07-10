@@ -1,18 +1,13 @@
 import java.io.*;
+import java.util.*;
 
 public class Main{
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(br.readLine());
         
-        String[] arr = br.readLine().split(" ");
-        int length = arr.length;
-        
-        if(length != 0) {
-        	length = arr[0].isBlank() ? length - 1 : length;
-        }
-        
-        bw.write(String.valueOf(length));
+        bw.write(String.valueOf(st.countTokens()));
         bw.flush();
     }
 }
