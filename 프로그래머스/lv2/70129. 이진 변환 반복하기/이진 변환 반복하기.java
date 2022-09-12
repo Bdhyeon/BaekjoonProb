@@ -1,30 +1,23 @@
 class Solution {
-    public int cnt = 0;
-    public int zero = 0;
-    
     public int[] solution(String s) {
-        change(s);
-        int[] answer = {cnt, zero};
-        return answer;
-    }
-    
-    public void change(String s){
-        if(!s.equals("1")){
-            cnt++;
-            while(s.contains("0")){
-                s = s.replaceFirst("0", "");
-                zero++;
+        int[] answer = new int[2];
+        
+        while(!s.equals("1")){
+            answer[0]++;
+            answer[1] += s.length();
+            s = s.replace("0", "");
+            answer[1] -= s.length();
+            
+            StringBuilder s2 = new StringBuilder();
+            int length = s.length();
+            while(length > 0){
+                s2.insert(0, length%2);
+                length /= 2;
             }
-            change(toDigit(s.length()));
+            
+            s = s2.toString();
         }
-    }
-    
-    public String toDigit(int num){
-        StringBuilder result = new StringBuilder();
-        while(num > 0){
-            result.insert(0, num%2);
-            num /= 2;
-        }
-        return result.toString();
+        
+        return answer;
     }
 }
