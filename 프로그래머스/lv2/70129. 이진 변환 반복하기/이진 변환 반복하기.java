@@ -8,14 +8,8 @@ class Solution {
             s = s.replace("0", "");
             answer[1] -= s.length();
             
-            StringBuilder s2 = new StringBuilder();
             int length = s.length();
-            while(length > 0){
-                s2.insert(0, length%2);
-                length /= 2;
-            }
-            
-            s = s2.toString();
+            s = Integer.toBinaryString(length);
         }
         
         return answer;
