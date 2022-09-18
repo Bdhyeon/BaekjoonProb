@@ -3,20 +3,20 @@ class Solution
 {
     public int solution(String s)
     {
-        int answer = -1;
-        Stack stack = new Stack();
-        stack.push('0');
+        Stack<Character> stack = new Stack();
         char[] arr = s.toCharArray();
         
         for(int i=0; i<arr.length; i++){
-            char temp = (char)stack.pop();
-            if(temp != arr[i]){
+            char temp = arr[i];
+            if(stack.size() == 0){
                 stack.push(temp);
-                stack.push(arr[i]);
+            }else if(stack.peek() == temp){
+                stack.pop();
+            }else{
+                stack.push(temp);
             }
-            //System.out.println(temp);
         }
         
-        return stack.size() == 1 ? 1 : 0;
+        return stack.size() == 0 ? 1 : 0;
     }
 }
